@@ -17,21 +17,37 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author aparracorbacho
+ * @author aparracorbacho, ngarciacarillo
+ * @see MysqlC
+ * Tambien se crea un array con 5 entradas y una tabla llamada modelo del tipo
+ * DefaultTableModel
  */
+
 public class PrincipalCorreo extends javax.swing.JFrame {
     Object []object = new Object[5];
     String usuario = null;
     DefaultTableModel modelo = new DefaultTableModel();
     MySqlC mysql = new MySqlC();
-            
+    
+      /**
+     * 
+     * @param usuario recoje el usuario desde login
+     * Lo que hace este mÃ©todo es aÃ±adir un mensaje de bienvenida personalizado,
+     * usando el nombre del usuario
+     */         
     public void setusuario(String usuario){
         this.usuario = usuario;
         bienvenido.setText("Bienvenido al correo interno de la empresa " +usuario);
         mysql.conn();
         cargar();
     }
-    
+      /**
+     * @see MySqlC
+     * Este mÃ©todo crea una tabla con los correos que tenemos en nuestra bandeja de entrada
+     * Realiza una consulta llamando al metodo consulta de MySqlC, vuelca los datos en un
+     * ResultSet y a continuaciÃ³n se imprime en una tabla.
+     * Tambien define el tamaÃ±o por defecto de la tabla.
+     */
     public void cargar(){
         try {           
             modelo.addColumn("Id");
@@ -195,19 +211,35 @@ public class PrincipalCorreo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+/**
+ * 
+ * @see MySqlC
+ * Carga de nuevo los correos en nuestra base de datos
+ */
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
         // TODO add your handling code here:
         modelo.setColumnCount(0);
         modelo.setRowCount(0);
         cargar();
     }//GEN-LAST:event_actualizarActionPerformed
-
+/**
+ * 
+ * @see MysqlC 
+ * cierra la conexiÃ³n con la base de datos
+ */
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
         // TODO add your handling code here:
         mysql.close();
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
-
+/**
+ * Este Evento abre el correo seleccionado al realizar doble click sobre el 
+ * @param enviadopc 
+ * @param asuntoc
+ * @param fecha
+ * @param hora
+ * @param id
+ */
     private void TCorreosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TCorreosMouseClicked
         // TODO add your handling code here:
         

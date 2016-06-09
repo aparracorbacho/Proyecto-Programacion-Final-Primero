@@ -16,6 +16,7 @@ public class Registro extends javax.swing.JFrame {
     /**
      * Creates new form Registro
      */
+
     public Registro() {
         initComponents();
         setLocationRelativeTo(null);
@@ -169,7 +170,16 @@ public class Registro extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_SalirActionPerformed
-
+    /**
+ * En este evento se recoje cuando se acciona el boton registrarse. Permite
+ * crear un nuevo usuario, tambiÃ©n comprueba si el nombre es vÃ¡lido.
+ * @see MysqlC
+ * @param usuario Nombre del usuario
+ * @param pass ContraseÃ±a
+ * @param cpass Repetir contraseÃ±
+ * @param seguridad Pregunta de seguridad
+ * @param existe Recupera un boolean que viene de la clase MySqlC comprobando si ya existe el usuario
+ */
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
         // Codigo para registrarse
         MySqlC mysql = new MySqlC();
