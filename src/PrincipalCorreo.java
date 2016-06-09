@@ -234,11 +234,6 @@ public class PrincipalCorreo extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirActionPerformed
 /**
  * Este Evento abre el correo seleccionado al realizar doble click sobre el 
- * @param enviadopc 
- * @param asuntoc
- * @param fecha
- * @param hora
- * @param id
  */
     private void TCorreosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TCorreosMouseClicked
         // TODO add your handling code here:
@@ -252,14 +247,22 @@ public class PrincipalCorreo extends javax.swing.JFrame {
         vercorreo.setVisible(true);
                
     }//GEN-LAST:event_TCorreosMouseClicked
-
+/**
+ * Al presionar el boton escribir correo se abre una ventana que nos permite enviar
+ * nuestro correo
+ * @see EscribirCorreo
+ * @param evt 
+ */
     private void escirbircorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escirbircorreoActionPerformed
         // TODO add your handling code here:
         EscribirCorreo escribirn = new EscribirCorreo();
         escribirn.setUsuario(usuario);
         escribirn.setVisible(true);
     }//GEN-LAST:event_escirbircorreoActionPerformed
-
+/**
+ * 
+ * @param evt 
+ */
     private void exportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportarActionPerformed
         // Codigo para exportar correos
         FileWriter fichero = null;
